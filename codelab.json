@@ -1,0 +1,23 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-05-14T02:03:02-05:00",
+  "id": "Sistemas_operativos_2-markdown",
+  "duration": 0,
+  "title": "Sistemas Operativos 2",
+  "summary": "Sistemas operativos 2",
+  "source": ".\\codelabs.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "sistemasoperativos2"
+  ],
+  "tags": [
+    "web"
+  ],
+  "url": "Sistemas_operativos_2-markdown"
+}

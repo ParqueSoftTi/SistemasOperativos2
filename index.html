@@ -1,0 +1,158 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Sistemas Operativos 2</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="Sistemas_operativos_2-markdown"
+                  title="Sistemas Operativos 2"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Paso 1: Manejo de archivos en Linux" duration="0">
+        <ol type="1">
+<li>Crea un directorio llamado practica_archivos en tu directorio personal.</li>
+<li>Dentro de practica_archivos, crea tres archivos: archivo1.txt, archivo2.txt y archivo3.txt.</li>
+<li>Utiliza el comando ls para listar el contenido del directorio y asegúrate de que los archivos se hayan creado correctamente.</li>
+<li>Cambia el nombre del archivo archivo3.txt a nuevo_archivo.txt.</li>
+<li>Mueve el archivo nuevo_archivo.txt al directorio padre (practica_archivos) utilizando el comando mv.</li>
+<li>Elimina el archivo archivo1.txt utilizando el comando rm.</li>
+<li>Verifica que el archivo haya sido eliminado utilizando ls.</li>
+<li>Finalmente, borra el directorio practica_archivos y su contenido.</li>
+</ol>
+<p>Los comandos que utilizaremos en esta practica son:</p>
+<pre><code>mkdir ~/practica_archivos
+touch ~/practica_archivos/archivo1.txt ~/practica_archivos/archivo2.txt ~/practica_archivos/archivo3.txt
+ls ~/practica_archivos
+mv ~/practica_archivos/archivo3.txt ~/practica_archivos/nuevo_archivo.txt
+mv ~/practica_archivos/nuevo_archivo.txt ~/practica_archivos/..
+rm ~/practica_archivos/archivo1.txt
+ls ~/practica_archivos
+rm -r ~/practica_archivos
+
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 2: Manejo de memoria en Linux" duration="0">
+        <ol type="1">
+<li>Utiliza el comando free -m para mostrar la cantidad de memoria disponible en tu sistema en megabytes.</li>
+<li>Ejecuta el comando top y observa el uso de memoria por parte de los procesos en tiempo real.</li>
+<li>Utiliza el comando vmstat para mostrar estadísticas de memoria virtual, incluyendo el uso de memoria, paginación, y tasa de intercambio.</li>
+</ol>
+<p>Los comandos que utilizaremos en esta practica son:</p>
+<pre><code>free -m
+top
+vmstat
+
+</code></pre>
+<p>Punto Adicional. Investigua cómo se puede limpiar la caché de memoria en Linux y ejecuta los comandos necesarios para hacerlo.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 3: Manejo de Seguridad en Linux" duration="0">
+        <ol type="1">
+<li>Verifica qué usuarios están actualmente conectados al sistema utilizando el comando who o w.</li>
+<li>Investiga cómo puedes cambiar la contraseña de tu usuario en Linux y hazlo.</li>
+<li>Asegúrate de que solo tu usuario tenga permisos de escritura en tu directorio personal y ninguno más.</li>
+<li>Investiga cómo puedes configurar el cortafuegos (firewall) en tu distribución de Linux y configura reglas básicas para bloquear el tráfico no deseado.</li>
+</ol>
+<p>Los comandos que utilizaremos en esta practica son:</p>
+<pre><code>who
+passwd
+chmod 700 ~/Directorio_Personal
+sudo ufw enable
+sudo ufw default deny
+
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 4: Manejo de procesos en Linux" duration="0">
+        <ol type="1">
+<li>Utiliza el comando ps para mostrar todos los procesos en ejecución en tu sistema.</li>
+<li>Encuentra el ID del proceso de tu terminal actual utilizando el comando echo $$.</li>
+<li>Utiliza el comando kill seguido del ID del proceso para finalizar tu terminal.</li>
+<li>Investiga cómo puedes ejecutar un proceso en segundo plano y cómo puedes traerlo al primer plano.</li>
+<li>Utiliza el comando top para monitorear los procesos en tiempo real y observa cómo cambian sus recursos.</li>
+</ol>
+<p>Los comandos que utilizaremos en esta practica son:</p>
+<pre><code>ps aux
+echo $$
+kill ID_del_proceso
+fg
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 5: Manejo de Drivers en Linux (dispositivos)" duration="0">
+        <ol type="1">
+<li>Utiliza el comando lsmod para listar todos los módulos del kernel cargados actualmente en tu sistema.</li>
+<li>Investiga cómo puedes cargar un módulo de kernel manualmente y hazlo (asegúrate de elegir un módulo seguro para cargar).</li>
+<li>Observa los mensajes del kernel relacionados con los dispositivos utilizando el comando dmesg.</li>
+<li>Investiga cómo puedes descargar y compilar un nuevo controlador de dispositivo para Linux. Si te sientes cómodo, sigue el procedimiento y compila un controlador simple (por ejemplo, un controlador de dispositivo ficticio).</li>
+</ol>
+<p>Los comandos que utilizaremos en esta practica son:</p>
+<pre><code>lsmod
+sudo modprobe nombre_del_modulo
+dmesg | grep -i &#34;device&#34;
+# Descargar el código fuente del controlador
+wget URL_del_controlador
+
+# Descomprimir el archivo descargado
+tar -xzvf nombre_del_archivo.tar.gz
+
+# Navegar al directorio del código fuente
+cd directorio_del_codigo_fuente
+
+# Configurar el kernel (si es necesario)
+./configure
+
+# Compilar el código fuente
+make
+
+# Instalar el controlador compilado
+sudo make install
+
+# Cargar el módulo del kernel
+sudo modprobe nombre_del_modulo
+
+
+</code></pre>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
